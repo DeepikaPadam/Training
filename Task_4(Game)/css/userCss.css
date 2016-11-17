@@ -1,0 +1,32 @@
+.container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    border: 1px solid;
+	top: 80px;
+	left:50px;
+}
+
+
+.active {
+    display: inline-block;
+    width: 150px;
+    height: 75px;
+    margin: 10px;
+	border: 1px solid black;
+}
+.floating-box {
+    display: inline-block;
+    width: 150px;
+    height: 75px;
+    margin: 10px;
+	border: 1px solid black;
+
+}
+
+.newClass{
+	background-color: pink;	
+}
+.anotherClass{
+	background-color: cyan;	
+}
