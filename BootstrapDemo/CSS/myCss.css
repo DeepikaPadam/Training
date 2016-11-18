@@ -1,0 +1,30 @@
+#container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+#navi,
+#infoi {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: -10;
+}
+
+.videoarea
+{
+ width:200px;
+ height:200px;
+ position:relative;
+ float:left;
+ margin-left:20px;
+}
+
+.videobutton
+{
+ width:200px;
+ height:200px;
+ float:left;
+ background:transparent;
+}

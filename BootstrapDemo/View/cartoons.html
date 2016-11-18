@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../CSS/myCss.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+		<div>
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>    
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="Index.html">Home</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="cartoons.html">Cartoons</a></li>
+						<li><a href="nature.html">Nature</a></li>
+						<li><a href="birds.html">Birds</a></li>
+					
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div style="margin:5% 5% 5% 5%;float:left">
+			<div style="width:200px;height:200px;position:relative;float:left;margin-left:20px">	
+					<div id="container" style="float:left">
+						<div id="infoi"><iframe width="200px" height="200px" src="https://www.youtube.com/embed/v-E7yCfVlBo"></iframe></div>
+						<div id="navi"><button style="width:200px;height:200px;float:left" type="button" class="btn btn-link" data-toggle="modal" data-target="#video1"></button></div>
+					</div>	
+					<div class="modal fade" id="video1" role="dialog">
+						<div class="modal-dialog">
+						
+						  <!-- Modal content-->
+							<div class="modal-content">	
+								<iframe width="100%" height="100%" src="https://www.youtube.com/embed/v-E7yCfVlBo" allowfullscreen>
+								</iframe>
+							</div>	  
+						</div>
+					</div> 
+			</div>
+		
+			<div style="width:200px;height:200px;position:relative;float:left;margin-left:20px">
+				<div id="container" style="float:left">
+					<div id="infoi"><iframe width="200px" height="200px" height="200" src="https://www.youtube.com/embed/ExYgsPBUx28"></iframe></div>
+					<div id="navi"><button style="width:200px;height:200px;float:left" type="button" class="btn btn-link" data-toggle="modal" data-target="#video2"></button></div>
+				</div>
+				
+				<div class="modal fade" id="video2" role="dialog">
+					<div class="modal-dialog">
+					  <!-- Modal content-->
+					  <div class="modal-content">
+							<iframe width="100%" height="100%" height="200" src="https://www.youtube.com/embed/ExYgsPBUx28" frameborder="0" allowfullscreen>
+							</iframe>
+					  </div>
+					</div>
+				</div> 
+			</div>
+		</div> 	
+	</body>
+</html>
+
