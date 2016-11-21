@@ -7,31 +7,18 @@
 		<link rel="stylesheet" type="text/css" href="../CSS/myCss.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			   
+			        $.get("navBar.html", function(result){
+			            $("#navBar").html(result);
+			        });
+			});
+		</script>
 	</head>
 	
 	<body>
-		<div>
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>    
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-left">
-						<li><a href="Index.html">Home</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="cartoons.html">Cartoons</a></li>
-						<li><a href="nature.html">Nature</a></li>
-						<li><a href="birds.html">Birds</a></li>
-					
-					</ul>
-				</div>
-			</nav>
-		</div>
+		<div id="navBar"></div>
 
 		<div style="margin:5% 5% 5% 5%;float:left">
 			<div style="width:200px;height:200px;position:relative;float:left;margin-left:20px">	
