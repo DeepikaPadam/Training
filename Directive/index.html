@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="JS/directive_Controllers.js"></script>
+    </head>
+     <body  ng-app = "myApp"> 
+        <div ng-controller = "serviceController1" >
+       		 <div emp-directive getData = 'data' delete = "deleteEmp($index)"></div>  
+        </div>
+        <div ng-controller = "serviceController2" >
+        	<div emp-directive getData = 'data' delete = "deleteEmp($index)"></div>  
+      </div>
+   </body>
+</html>
