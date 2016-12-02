@@ -1,0 +1,1 @@
+table th td{border:1px solid #000;border-collapse:collapse}thead th{font-weight:700;background-color:#0c3}table tbody td{vertical-align:top}table tfoot th{vertical-align:top;background-color:#0c3}.allRows{background-color:#fff;color:#000}tr:nth-child(even){background-color:#9f9}tr:nth-child(odd){background-color:#cfc}tbody tr{background-color:#fff;color:#000}

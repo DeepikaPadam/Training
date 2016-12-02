@@ -1,0 +1,53 @@
+@bodyBackground        : #CCFFCC;
+@bodyTextColor         : black;
+@headerBackground      : hsl(135, 100%, 40%);
+@headerTextColor       : #000;
+
+
+
+table{
+ 	th{
+	 	td {
+	    	border: 1px solid black;
+	    	border-collapse: collapse;
+		}
+	}
+} 
+
+ thead {
+	 th {
+			font-weight: bold;
+			background-color: @headerBackground;
+		}
+	}	
+
+
+table{
+	tbody {
+		td{
+			vertical-align: top
+		}
+	}
+	tfoot {
+		th {
+			vertical-align: top;
+			background-color: @headerBackground;
+		}
+	}
+
+}
+ 
+
+.allRows {
+	background-color:lighten( @bodyBackground, 40%);
+	color: @bodyTextColor;
+}
+
+tr:nth-child(even){background-color:#99FF99 }
+tr:nth-child(odd){background-color: #CCFFCC }
+tbody{
+	tr{
+ 		.allRows;
+	}
+} 
+ 

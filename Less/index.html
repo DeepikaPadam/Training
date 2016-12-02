@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="lessController.js"></script>
+      <link rel="stylesheet" href="jsonLess.css">
+
+    </head>
+     <body> 
+        <div ng-app = "myApp" ng-controller = "serviceController" >
+          <table >
+            <thead>
+              <tr>
+                  <th>Alphanumeric</th>
+                  <th>Numbers</th>
+                  <th>Animals</th>
+                   <th>Sites</th>
+              </tr>
+              <tr>
+                <td><input ng-model="Alphanumeric"/></td>
+                <td><input ng-model="Numbers"/></td>
+                <td><input ng-model="Animals"/></td>
+                <td><input ng-model="Sites"/></td>
+              </tr>       
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Alphanumeric</th>
+                    <th>Numbers</th>
+                    <th>Animals</th>
+                     <th>Sites</th>
+                </tr>
+            </tfoot>
+            <tbody>
+              <tr ng-repeat = "x in myData =(data.AlphaNumeric | filter:{alpha:Alphanumeric,number:Numbers,animal:Animals,link:Sites})">
+                 <td>{{ x.alpha }}</td>
+                 <td>{{ x.number }}</td>
+                 <td>{{ x.animal }}</td>
+                 <td>{{ x.link}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+   </body>
+</html>
