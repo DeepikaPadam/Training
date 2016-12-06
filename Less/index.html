@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
       <script src="lessController.js"></script>
       <link rel="stylesheet" href="jsonLess.css">
@@ -17,13 +15,13 @@
                   <th>Alphanumeric</th>
                   <th>Numbers</th>
                   <th>Animals</th>
-                   <th>Sites</th>
+                  <th>Sites</th>
               </tr>
               <tr>
-                <td><input ng-model="Alphanumeric"/></td>
-                <td><input ng-model="Numbers"/></td>
-                <td><input ng-model="Animals"/></td>
-                <td><input ng-model="Sites"/></td>
+                <td><input ng-model="Alphanumeric" id="input"/></td>
+                <td><input ng-model="Numbers" id="input"/></td>
+                <td><input ng-model="Animals" id="input" /></td>
+                <td><input ng-model="Sites" id="input" /></td>
               </tr>       
             </thead>
             <tfoot>
@@ -31,7 +29,7 @@
                     <th>Alphanumeric</th>
                     <th>Numbers</th>
                     <th>Animals</th>
-                     <th>Sites</th>
+                    <th>Sites</th>
                 </tr>
             </tfoot>
             <tbody>

@@ -1,53 +1,71 @@
 @bodyBackground        : #CCFFCC;
 @bodyTextColor         : black;
 @headerBackground      : hsl(135, 100%, 40%);
-@headerTextColor       : #000;
+@headerTextColor       : white;
 
 
 
 table{
- 	th{
-	 	td {
-	    	border: 1px solid black;
-	    	border-collapse: collapse;
-		}
-	}
+	font-size: 25px;
+	border: 1px solid black;
+	border-collapse: collapse;
+	td {
+    	border: 1px solid black;
+	}	
 } 
 
- thead {
-	 th {
-			font-weight: bold;
-			background-color: @headerBackground;
-		}
-	}	
-
+.th {
+	background-color: @headerBackground;
+	color : @headerTextColor;
+}
 
 table{
-	tbody {
-		td{
-			vertical-align: top
+	thead {
+		th{
+		 	.th;
 		}
-	}
-	tfoot {
+	}	
+	
+	tfoot{
 		th {
-			vertical-align: top;
-			background-color: @headerBackground;
+ 		 &:extend(.th);
 		}
 	}
 
 }
- 
+
+.input-borders (@pixel) {
+	height: @pixel;
+	width: @pixel;
+}
+
+thead{
+	tr{
+		td{
+			#input{
+				.input-borders(99%);
+			}
+			
+		}
+	}
+} 
 
 .allRows {
 	background-color:lighten( @bodyBackground, 40%);
 	color: @bodyTextColor;
 }
 
-tr:nth-child(even){background-color:#99FF99 }
-tr:nth-child(odd){background-color: #CCFFCC }
+
 tbody{
 	tr{
  		.allRows;
+ 		&:hover {
+    		background: white;
+ 		}	
 	}
 } 
- 
+
+tr:nth-child(even){
+	background-color:#99FF99;
+}
+tr:nth-child(odd){background-color: #CCFFCC }
