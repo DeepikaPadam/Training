@@ -1,0 +1,25 @@
+{ 
+  "Details":{
+      "name":"Deepika",
+      "Dob":"10,june",
+      "email":"deepika.padam@gmail.com",
+      "phn":"9493065244",
+      "address":"Polavaram"
+
+   },
+
+  "Education": {
+    
+      "year1": "2010",
+      "Name1": "St.Francis school",
+      
+    
+      "year2": "2010-2012",
+      "Name2": "Narayana collage",
+    
+      "year3": "2012-2016",
+      "Name3": "Bachelors of Technology in Kakinada Institute Of engineering and                  Techonolgy "
+    }
+
+}
+
