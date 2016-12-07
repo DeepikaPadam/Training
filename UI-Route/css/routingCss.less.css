@@ -1,0 +1,44 @@
+@myBackgroundColor : #474e5d; /* Dark Blue */
+@textColor : #ffffff;
+.bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: @textColor ;
+  }
+.bg-2 { 
+  background-color: @myBackgroundColor; 
+  color: @textColor ;
+  font-family: cursive;
+}
+.footer{
+	color: @myBackgroundColor;
+}
+.bold{
+	color: pink;
+};
+
+.my-hover-mixin(){
+    width: 40%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+    &:focus{
+      background-color: lightblue;
+      font-size : 20px;
+  }
+}
+
+#inputbox {
+  .my-hover-mixin();
+}
+
+textarea {
+    width: 30em;
+    height: 4em;
+}
+
+.background{
+ // background-image: url("../images/download.jpg");
+ background-color: #ffcc80;
+  }
