@@ -17,6 +17,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/education',
              templateUrl: 'view/educationDetails.html'
         })
+        .state('home.myFriends', {
+            url: '/myFriends',
+             templateUrl: 'view/myFriends.html'
+        })
         .state('about', {
             url: '/about',
             templateUrl: 'view/about.html'
@@ -33,8 +37,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 app.service('jsonService', function ($http, $q) {
-    this.personalDetails= function() {
-        return $http.get("js/myDetails.json")
+    this.getDetails= function(url) {
+        return $http.get(url)
             .then(function(response) {
                 console.log(response.data)
                 return response.data; 
@@ -43,14 +47,15 @@ app.service('jsonService', function ($http, $q) {
             });
     }
 });
-app.controller('serviceController', function($scope, jsonService, $q) {
-   console.log("wejhfk"); 
-        jsonService.personalDetails()       
-            .then(function(response) {
-                console.log(response)           
-                $scope.data = response;
-            }, function(error) {          
-                alert("Data not found");
-            });
-    
-}); 
+app.controller("serviceController" , function($scope,$q,jsonService){
+
+    var promise1 = jsonService.getDetails("jS/myDetails.json");
+
+    var promise2 = jsonService.getDetails("jS/myFriends.json");
+
+    $q.all([promise1, promise2]).then(function(data){ 
+        $scope.json1 = data[0];
+        $scope.json2 = data[1];
+        console.log(data[1]);
+    }); 
+});
