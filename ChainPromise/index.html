@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+		<script src="js/promiseLooping.js"></script>
+	</head>
+	<body ng-app = "myApp">
+		<div ng-controller="promiseController">
+			<table>
+				<tr>
+					<th>Alphanumeric</th>
+                  	<th>Numbers</th>
+                  	<th>Animals</th>
+                  	<th>Sites</th>
+				</tr>
+				<tr ng-repeat = "x in json2.AlphaNumeric">
+                	<td>{{ x.alpha }}</td>
+                 	<td>{{ x.number }}</td>
+                 	<td>{{ x.animal }}</td>
+                 	<td>{{ x.link}}</td>
+             	</tr>
+			</table><br>
+			<div>
+				<b >Name:</b><span> {{json3.Details.name}}</span><br>
+				<b >Birth Date:</b><span> {{json3.Details.Dob}}</span><br>
+				<b >Email:</b><span> {{json3.Details.email}}</span><br>
+				<b >Mobile:</b><span> {{json3.Details.phn}}</span><br>
+				<b >Address:</b><span> {{json3.Details.address}}</span>
+			</div><br>
+			<div>
+				<table>
+		            <tr>
+		                <th>Emp Name</th>
+		                <th>Emp ID</th>
+		                <th>Experience</th>
+		            </tr>
+		            <tr ng-repeat = "emp in json1.employees">
+		               <td>{{ emp.empName }}</td>
+		               <td>{{ emp.empId }}</td>
+		               <td>{{ emp.experience }}</td>
+		            </tr>
+	          </table>
+          </div>
+		</div>
+	</body>
+</html>
