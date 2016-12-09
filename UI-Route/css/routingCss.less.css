@@ -3,11 +3,16 @@
 .bg-1 { 
       background-color: #1abc9c; /* Green */
       color: @textColor ;
+      width: auto;
+      font-family: cursive;
+      font-size: 15px;
   }
 .bg-2 { 
   background-color: @myBackgroundColor; 
   color: @textColor ;
   font-family: cursive;
+ margin-left:20px;
+   width: auto;
 }
 .footer{
 	color: @myBackgroundColor;
@@ -38,7 +43,21 @@ textarea {
     height: 4em;
 }
 
-.background{
- // background-image: url("../images/download.jpg");
- background-color: #ffcc80;
-  }
+@images: "../images";
+
+body {
+  background: url("@{images}/bg.jpg")no-repeat center center fixed;
+  background-size: cover;
+}
+
+#navcolor{
+  background-color: @myBackgroundColor; 
+  color: @textColor ;
+  font-family: cursive;
+}
+
+h1{
+  font-style: italic;
+  margin-bottom:100px;
+  text-shadow: 2px 2px;
+}

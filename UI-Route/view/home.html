@@ -1,15 +1,15 @@
 <div>
-	<div class="container">
-		<div class="jumbotron text-center">
+	<div class="container"  style="margin-top: 50px">
+		<div class=" text-center">
 			<h1>My Official Page</h1> 
 		</div>
 	</div>	
 </div>
 <div class="row">
-    <div class="well col-sm-2 text-center">
-		  <p ui-sref="home.details"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> MY DETAILS</p><br>
-		  <p ui-sref="home.education"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> EDUCATION</p><br>
-		  <p ui-sref="home.myFriends"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> MY FRIENDS</p>
+    <div class="well col-sm-4 text-center">
+		<p ui-sref="home.details" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> MY DETAILS</p><br>
+		<p ui-sref="home.education"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> EDUCATION</p><br>
+		<p ui-sref="home.myFriends"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> MY FRIENDS</p>
     </div>
     <div ui-view></div>
 </div>

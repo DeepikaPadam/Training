@@ -4,7 +4,11 @@
             <th class="bold">Name</th>
             <th class="bold">Mobile</th>
         </tr>
-        <tr ng-repeat = "frnd in json2.friends">
+        <tr class="footer">
+          <td><input ng-model="Name" id="input"/></td>
+          <td><input ng-model="Mobile" id="input"/></td>
+        </tr>  
+        <tr ng-repeat = "frnd in myData=(json2.friends | filter:{name:Name,mobile:Mobile})">
            <td>{{ frnd.name }}</td>
            <td>{{ frnd.mobile }}</td>
         </tr>

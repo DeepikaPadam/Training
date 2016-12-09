@@ -1,9 +1,22 @@
-<div>
-	<div class="well  bg-2 col-sm-5">
-		<b class="bold">Name:</b><span> {{json1.Details.name}}</span><br>
-		<b class="bold">Birth Date:</b><span> {{json1.Details.Dob}}</span><br>
-		<b class="bold">Email:</b><span> {{json1.Details.email}}</span><br>
-		<b class="bold">Mobile:</b><span> {{json1.Details.phn}}</span><br>
-		<b class="bold">Address:</b><span> {{json1.Details.address}}</span>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+     	<!-- Modal content-->
+	    <div class="modal-content">
+	        <div class="modal-header">
+	         	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        </div>
+	        <div class="modal-body  bg-1">
+				<div>
+					<b class="footer">Name:</b><span> {{json1.Details.name}}</span><br>
+					<b class="footer">Birth Date:</b><span> {{json1.Details.Dob}}</span><br>
+					<b class="footer">Email:</b><span> {{json1.Details.email}}</span><br>
+					<b class="footer">Mobile:</b><span> {{json1.Details.phn}}</span><br>
+					<b class="footer">Address:</b><span> {{json1.Details.address}}</span>
+				</div>	
+	        </div>
+	        <div class="modal-footer ">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	    </div>  
 	</div>
 </div>
