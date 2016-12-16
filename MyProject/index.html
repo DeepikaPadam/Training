@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Demo Project</title>
+		<link rel="stylesheet" href="CSS/bootstrap.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="JS/bootstrap.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+		<script src="JS/app.js"></script>
+
+	<!--	<script>
+			var app = angular.module('myApp');
+			app.controller('appCtrl', function($scope, $rootScope,$timeout){
+				var name = {};
+
+				$rootScope.$on("SendDown", function (evt, data) {
+					console.log(data.name);
+					console.log(typeof name)
+					name = angular.copy(data);
+					console.log(name.name);
+					if(typeof name.name == 'object'){
+						console.log(name.name.name);
+						var name2 = name.name.name;
+						console.log(name2);
+						$timeout(function() {
+							$rootScope.$emit("SendDown2", {name : name2});
+						}, 10);
+						
+					}
+
+			    });
+			    
+			});
+		</script> -->
+	</head>
+	<body ng-app="myApp" ng-controller="appCtrl">
+		<div ui-view></div>
+	</body>
+</html>

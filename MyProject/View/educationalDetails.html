@@ -1,0 +1,28 @@
+<div ng-controller="secondCtrl">
+	<span ng-bind = 'name'></span>
+	<div class="text-center">
+		<h2>Enter your Educational Details</h2>
+	</div><br/>
+	<div>
+		<h3>Schooling:</h3>
+	    <label for="usr">School Name:</label>
+	    <input type="text" placeholder="Name" id="inputbox" ng-model="academicDetails.Schooling.schoolName"><br>
+	    <label for="usr">Percentage:</label>
+	    <input type="text" placeholder="Mobile Number" id="inputbox" ng-model="academicDetails.Schooling.percentage"><br><br>  
+	</div>
+	<div>
+		<h3>Intermediate:</h3>
+	    <label for="usr">Collage Name:</label>
+	    <input type="text" placeholder="Name" id="inputbox" ng-model="academicDetails.Inter.collageName"><br>
+	    <label for="usr">Percentage:</label>
+	    <input type="text" placeholder="Mobile Number" id="inputbox" ng-model="academicDetails.Inter.percentage"><br><br>  
+	</div>
+	<div>
+		<h3>Degree:</h3>
+	    <label for="usr">University Name:</label>
+	    <input type="text" placeholder="Name" id="inputbox" ng-model="academicDetails.Degree.InstituteName"><br>
+	    <label for="usr">Percentage:</label>
+	    <input type="text" placeholder="Mobile Number" id="inputbox" ng-model="academicDetails.Degree.percentage"><br><br>  
+	</div>
+	<button ui-sref="professionalDetails" ng-click="nextEvent()">Next</button>
+</div>

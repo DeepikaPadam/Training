@@ -1,0 +1,24 @@
+<div ng-controller="thirdCtrl">
+	<div class="text-center">
+		<h2>Enter your Professional Details</h2>
+	</div><br/>
+	<div>
+		<h3>Current Status:</h3><br>
+		<label for="usr">Company Name:</label><br>
+	   	<input type="text" placeholder="Name" id="inputbox" ng-model="technicalDetails.currentCompany.name"><br>
+	   	<label for="usr">Designation:</label><br>
+	   	<input type="text" placeholder="Name" id="inputbox" ng-model="technicalDetails.currentCompany.designation"><br>
+	</div>
+	<div>
+		<h3>Previous Organization:</h3><br>
+		<label for="usr">Company Name:</label><br>
+	   	<input type="text" placeholder="Name" id="inputbox" ng-model="technicalDetails.previousCompany.name"><br>
+	   	<label for="usr">Designation:</label><br>
+	   	<input type="text" placeholder="Name" id="inputbox" ng-model="technicalDetails.previousCompany.designation"><br><br>
+	</div>
+	<div>
+	    <h3>Technical Skills:</h3><br>
+	    <textarea rows="4" cols="50" ng-model="technicalDetails.tecnicalSkills"></textarea><br><br>   
+	</div>
+	<button>Submit</button>
+</div>
