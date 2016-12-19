@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Table</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="tableCss.css">
+
+	</head>
+	<body>
+		<div ng-app="myApp">
+			<div ng-controller = "tableController">
+				<input type="number" ng-model="numberLimit" placeholder="Enter any number"/><br><br>
+				<table>
+					<tr ng-repeat = "numA in numberArray">
+						<td ng-repeat = "numB in numberArray">
+						{{ multiplyNumbers(numA, numB) }}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
+
+	
