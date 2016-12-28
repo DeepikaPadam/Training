@@ -10,7 +10,6 @@
 }
 
 .logo{ 
- 	margin-left: 25%;
  	background-size: cover;
  	height: 135px;
  	width: 215px;
@@ -136,6 +135,7 @@ button {
     margin-bottom: 0px;
     font-size: 15px;
     text-align: center;
+    color:#9b9b9b;
 }
 
 /*CSS for Another Page Starts here*/
@@ -148,7 +148,6 @@ button {
 }
 
 .cloudLogo{ 
- 	margin-left: 178px;
  	background-size: cover;
  	height: 135px;
  	width: 215px;
@@ -162,20 +161,20 @@ body{
 
 h2{
 	color: #556B2F;
-	font-size: 25px;
-	font-family: 'Fira Sans', sans-serif;
-	margin-top: 60px;
-	margin-left: 50px;
-	margin-right: 90px;
-	margin-bottom: 45px; 
+    font-size: 25px;
+    font-family: 'Fira Sans', sans-serif;
+    margin-top: 60px;
+    margin-left: 150px;
+    margin-right: 90px;
+    margin-bottom: 45px;
 }
 
 h4{
 	font-family: 'Fira Sans', sans-serif;
-	font-size: 20px;
-	margin-left: 50px;
-	margin-right: 75px;
-	margin-bottom: 55px; 
+    font-size: 20px;
+    margin-left: 150;
+    margin-right: 75px;
+    margin-bottom: 55px;
 }
 
 .row-form{
