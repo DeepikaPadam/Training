@@ -22,7 +22,6 @@
 	color:#417505;
 	font-family: 'Fira Sans', sans-serif;
 	margin-top: 57px;
-	margin-left: 60px;
 	margin-right: 250px;
 	margin-bottom: 65px; 
 	text-align:left;
@@ -36,12 +35,12 @@
 
 .loginForm{
 	height: 450px;
-	width:817px;
+
 }
 
 .loginHeader{
 	background-color: #84B84C;
-	height: 83px;
+	height: 85px;
 }
 
 .hand{
@@ -52,6 +51,7 @@
 }
 
 h3{
+	margin-left: 10%;
 	color:white;
 	margin-top: 28px;
 	margin-bottom: 32px;
@@ -71,22 +71,25 @@ h3{
     color: #84B84C;
     background-color: white;
     font-weight: 900;
+    cursor: pointer;
 }
 
 .box{
 	opacity:0.89;
 	background:#ffffff;
-	width:819px;
+
 	height:368px;
 }
 
 .textbox{
-	margin-left: 135px;
+	margin-left: 15%;
+	font-family:FiraSans-Regular;
+    font-size:18px;
 }
 
 .inputbox{
 	margin-left: 50px;
-	width: 412px;
+	width: 53%;
 	height: 45px;
 	margin-top: 47px;
 }
@@ -94,32 +97,38 @@ h3{
 .password{
 	margin-top: 17px;
 	margin-left: 59px;
-	width: 412px;
-	height: 45px
+	width: 53%;
+	height: 45px;
 }
 
 .login{
-	margin-left: 276px;
+	margin-left: 33%;
 	margin-right: 425px;
 	margin-top: 35px;
 }
 
 button {
     background-color: #77C0EA; 
+    font-family:FiraSans-Regular;
+    font-size:18px;
     border: none;
     color: white;
     text-align: center;
     display: inline-block;
     cursor: pointer;
-    height: 50px;
-    width: 115px;
+    height: 15%;
+    width: 107px;
 }
 
 .text{
-	margin-left: 276px;
-	margin-right: 279px;
-	margin-top: 35px;
+	font-family: FiraSans-Regular;
+    font-size: 18px;
+    color: #4a4a4a;
+    margin-left: 33%;
+    margin-top: 3%;
+    cursor: pointer;
 }
+
 
 .footer{
 	height: 100px;
@@ -128,13 +137,14 @@ button {
 }
 
 .footerText{
-	margin-top: 47px;
-	margin-left: 400px;
-    margin-right: 400px;
+	margin-top: 3%;
+    margin-left: 35%;
+    margin-right: 30%;
     margin-bottom: 0px;
     font-size: 15px;
     text-align: center;
     color:#9b9b9b;
+    font-family:FiraSans-Regular;
 }
 
 /*CSS for Another Page Starts here*/
@@ -159,13 +169,13 @@ body{
 }
 
 h2{
-	color: #556B2F;
+	color: #417505;
     font-size: 25px;
     font-family: 'Fira Sans', sans-serif;
-    margin-top: 60px;
+    margin-top: 5%;
     margin-left: 150px;
     margin-right: 90px;
-    margin-bottom: 45px;
+    margin-bottom: 3%;
 }
 
 h4{
