@@ -27,6 +27,7 @@ app.controller("gameController", function($scope) {
             } else if ($scope.input > randomNumber) {
                 $scope.text = "The entered number is high";
                 $scope.input = "";
+            
             } else {
                 $scope.text = "Enter the valid Number";
                 $scope.input = "";

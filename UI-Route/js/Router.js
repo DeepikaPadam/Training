@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router']);
+var app = angular.module('myApp', ['ui.router', 'ngMap']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     
