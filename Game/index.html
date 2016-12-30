@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Guess Number</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="game.css">
+	</head>
+	<body ng-app = "myApp">
+		<div ng-controller = "gameController" class="text-center">
+			<h2>Guess the Number</h2>
+			<div ng-show="display">
+				<input type="text" ng-model="input"><br> 
+			</div>
+			<div class="txt">{{text}}</div>
+			<button ng-click = "onClick()">?</button><br>
+			<button ng-click = "reloadGame()">&#x21BB</button>
+		</div>
+	</body>
+</html>
