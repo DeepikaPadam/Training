@@ -1,0 +1,17 @@
+.box{
+	border:1px solid black;
+	height: 90%;
+}
+
+.smallBox{
+	border: 1px solid black;
+    width: 100%;
+    height: 30%;
+   	text-align: center;
+    margin-top: 10%;
+    margin-left: 25%;
+}
+
+
+
+

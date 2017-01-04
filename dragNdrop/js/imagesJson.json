@@ -1,0 +1,13 @@
+{"friends":
+		[
+			{"image":"images/tomato.png" ,"id" : "1"},
+			{"image":"images/polarbear.png" ,"id" : "2"},
+			{"image":"images/school.png" ,"id" : "3"},
+			{"image":"images/snake.png" ,"id" : "4"},
+			{"image":"images/teddy.png" ,"id" : "5"},
+		 	{"image":"images/tortoise.png" ,"id" : "6"},
+		 	{"image":"images/telugu.png" ,"id" : "7"},
+		 	{"image":"images/books.png" ,"id" : "8"},
+		 	{"image":"images/cricket.png" ,"id" : "9"}
+	    ]
+}

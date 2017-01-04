@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>DragNDrop</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+		<script src = "js/app.js"></script>	
+		<link rel="stylesheet" href="css/dragCss.css">
+	</head>
+	<body ng-app = "myApp">
+		<div ng-controller = "dragController">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<div class ="box">
+							<div  class="row" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+								<p class="col-md-4"  ng-repeat="image in images">
+									<img ng-src="{{image.image}}" class="img-responsive" id="{{image.id}}">
+								</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-7">
+						<div class ="box">
+							<div class="row">
+								<div id = "box1" data-drop="true" jqyoui-droppable>
+									<div class = "col-md-3">				 
+										<div class = "smallBox" id="1">Vaishu</div>
+										<div class = "smallBox" id="3">Namratha</div>
+									    <div class = "smallBox" id="6">Santhu</div>
+									</div>
+												    
+									<div class = "col-md-3">
+										<div class = "smallBox" id="2">Praneeth</div>
+										<div class = "smallBox" id="4">Latha</div>
+										<div class = "smallBox" id="5">Ragha</div>
+									</div>
+										<div class = "col-md-3">
+										<div class = "smallBox" id="7">Varudhini</div>
+										<div class = "smallBox" id="8">Gnani</div>
+										<div class = "smallBox" id="9">Vamsi</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
