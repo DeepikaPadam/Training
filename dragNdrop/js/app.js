@@ -1,4 +1,13 @@
-var app  = angular.module("myApp",[]);
+(function(){
+	"use strict";
+
+	// angular module
+	angular.module('myApp',[]);
+
+})();
+
+
+
 
 app.service("dragdropService", function($http, $q){
 

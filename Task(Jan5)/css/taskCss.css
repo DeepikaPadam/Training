@@ -1,0 +1,12 @@
+.hiddenRow {
+    padding: 0 !important;
+}
+
+.icon{
+	font-size: 30px;
+	margin-top: 3%;
+}
+
+.label{
+	color:red;
+}
