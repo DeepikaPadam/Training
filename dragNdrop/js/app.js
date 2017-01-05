@@ -15,28 +15,26 @@ app.service("dragdropService", function($http, $q){
 	this.dragEvent = function(){
 		var dragged;
 		console.log("hfj");
-		document.addEventListener("drag", function( event ) {
+		document.addEventListener("drag", function(event) {
   		}, false);
-  		document.addEventListener("dragstart", function( event ) {
+  		document.addEventListener("dragstart", function(event) {
 			dragged = event.target;
 			console.log(dragged);
 			event.target.style.opacity = 0.5;
   		}, false);
-		document.addEventListener("dragend", function( event ) {
+		document.addEventListener("dragend", function(event) {
 			event.target.style.opacity = "";
   		}, false);
-		document.addEventListener("dragover", function( event ) {
+		document.addEventListener("dragover", function(event) {
 			event.preventDefault();
   		}, false);
 
-		document.addEventListener("drop", function( event ) {
+		document.addEventListener("drop", function(event) {
 			event.preventDefault();
 			console.log(dragged.id);
 			console.log(event.target);
-			if ( event.target.id == dragged.id)  {
-				console.log(event.target.id);
-				dragged.parentNode.removeChild(dragged);
-		        event.target.appendChild(dragged);
+			if (event.target.id == dragged.id)  {
+		    	event.target.appendChild(dragged);
           	}
   		}, false);
 	}
