@@ -1,0 +1,60 @@
+<div class = "container">
+	<div class = "table-responsive">
+		<table class = "table table-condensed">
+			<thead style="background-color: #EAEAEA;">
+		        <tr>
+		          <th></th>
+		          <th>Frequency<br>Type</th>
+		          <th>Start<br>Date</th>
+		          <th>End Date</th>
+		          <th>Total Cash<br>With Tax</th>
+		          <th>Actions</th>
+		        </tr>
+		    </thead>
+			<tbody ng-repeat="x in details track by $index"> 
+		       <tr data-toggle="collapse" data-target="#{{$index}}" class="accordion-toggle trbottom">
+			    	<td class="col-md-2">{{x.payType}}</td>
+			        <td class="col-md-2"></td>
+			        <td class="col-md-2"></td>
+			        <td class="col-md-2"></td>
+			        <td class="col-md-2"></td>
+			        <td class="col-md-2"> <button id='togglebutton' class="arrowtoggle" ng-click='show=!show;' ng-class="{'fa fa-angle-right':!show,'fa fa-angle-down':show}" aria-hidden="true"> </button></td>
+		        </tr>
+		        <td colspan="6" class="hiddenRow">
+		            <div class="accordian-body collapse" id="{{$index}}">
+		                <table class="innertable col-lg-12  col-md-12">
+		                    <tbody  ng-repeat="x in details">
+		                        <tr>
+		                            <td class="col-md-2"><span><i class="fa fa-hourglass-half"></i></span></td>
+		                            <td class="col-md-2">{{x.freqType}}</td>
+		                            <td class="col-md-2">{{x.startPeriod}}</td>
+		                            <td class="col-md-2">22/2/2018</td>
+		                  			<td class="col-md-2"></td>
+		                
+		                   			<td class="col-md-2">
+		                   				<button class="arrowtoggle"><i class="fa fa-pencil" aria-hidden="true" ng-click="editmodal()"></i></button>
+		                   				<button class="arrowtoggle"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"></i></button>
+		                   			</td>
+		                        </tr>
+		                     </tbody>
+		                </table>
+
+		            </div>
+		        </td>	   
+		    </tbody>
+			<tfoot>
+				<tr>
+					<td colspan="6">
+						<button type="button" class="btn btn-success btn-block footer" data-toggle="modal" data-target="#myModal1">+Add</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+
+<div>
+	<modal1-directive></modal1-directive>	
+	<modal2-directive></modal2-directive>
+	<delete-directive></delete-directive>	
+</div>

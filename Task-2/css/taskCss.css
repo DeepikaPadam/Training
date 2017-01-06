@@ -10,3 +10,7 @@
 .label{
 	color:red;
 }
+
+.cursor{
+	cursor: pointer;
+}

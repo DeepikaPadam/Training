@@ -1,0 +1,34 @@
+.hiddenRow {
+    padding: 0 !important;
+}
+
+.icon{
+	font-size: 30px;
+	margin-top: 3%;
+}
+
+.label{
+	color:red;
+}
+
+.cursor{
+	cursor: pointer;
+}
+.footer{
+	background-color:#c8e6c9;
+	border: none;
+	border-radius: none;
+	height: 40px;
+}
+.footer:hover{
+	background-color:#c8e6c9;
+}
+
+.modalDimensions{
+	width:600px;
+	height:550px;
+}
+
+.myBtn{
+	margin-bottom: 20px;
+}

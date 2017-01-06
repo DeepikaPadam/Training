@@ -1,9 +1,9 @@
-<div class="container" ng-controller = "promiseController">
+<div class="container">
   <!-- Modal -->
 	  <div class="modal fade" id="myModal1" role="dialog">
 	    <div class="modal-dialog">
 	      <!-- Modal content-->
-		    <div class="modal-content">
+		    <div class="modal-content modalDimensions">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal">&times;</button>
 		          <h4 class="modal-title">Payment Information</h4>
@@ -12,33 +12,27 @@
 			        <div class = "container">
 			          	<form class="form-inline">
 							<div class="form-group">
-					     		<label>Payment Type<span class="label">&#42;</span></label><br>
-					      		<select class="form-control" required="required" ng-model="selected" ng-options="item.id as item.path.split('\\')[2] for item in paymentType">
-	        					</select>
-
-					    	</div>
+				               <label>Payment Type<span class="label">&#42;</span></label><br>
+				                <select style="width:250px" class="form-control" ng-model="payType" ng-options="item for item in paymentType" required>
+				                </select>
+				                <p style="color: red" ng-show="paymentAlert">Please fill this field</p>
+				            </div>
 					    	<div class="form-group">
 					     		<label>Accounting Type<span class="label">&#42;</span></label><br>
-					     		<form name="myForm">
-						      		<select class="form-control " name="acnt" required="required" ng-model="selected" ng-options="item.id as item.value for item in accounting">
-		       						</select>
-		       					<!--	<span style="color:red" ng-show="myForm.acnt.$dirty && myForm.acnt.$invalid">
-									<span ng-show="myForm.acnt.$error.required">Username is required.</span>
-									</span> -->
-	       						</form>
-
+					     		<select style="width:250px" class="form-control" ng-model="accountingData" ng-options="item for item in accounting" required>
+				                </select>
 					    	</div>
 			          	</form>
 			          	<form class="form-inline">
 			          		<div class="form-group">
 					     		<label>Frequency<span class="label">&#42;</span></label><br>
-					      		<select class="form-control" required="required" ng-model="selected" ng-options="item.id as item.path.split('\\')[2] for item in frequency">
+					      		<select class="form-control" required="required" ng-model="freqType" ng-options="item for item in frequency">
 	        					</select>
 					    	</div>
 					    	<div class="form-group">
 					     		<label>Period Start Date<span class="label">&#42;</span></label><br>
 					      		 <div class="input-group date" data-provide="datepicker">
-								    <input type="text" class="form-control">
+								    <input type="text" ng-model="startPeriod" class="form-control" required>
 								    <div class="input-group-addon">
 								        <span class="fa fa-calendar-o"></span>
 								    </div>
@@ -46,32 +40,33 @@
 							</div>
 							<div class="form-group">
 					     		<label>Payment Timing<span class="label">&#42;</span></label><br>
-					      		<select class="form-control " required="required" ng-model="selected" ng-options="item.id as item.value for item in paymentTiming" required>
+					      		<select class="form-control " required="required" ng-model="paymentTime" ng-options="item for item in paymentTiming">
 	       						</select>
+					 
 							</div>
 			          	</form>
 			          	<form class="form-inline">
 			          		<div class="form-group">
 					     		<label>Payment Due On<span class="label">&#42;</span></label><br>
-					      		<select class="form-control " required="required" ng-model="selected" ng-options="item.id as item.value for item in dueon">
+					      		<select class="form-control " required="required" ng-model="paymentDueon" ng-options="item for item in dueon">
 	       						</select>
 					    	</div>
 					    	<div class="form-group">
 					     		<label>Payment Due Day<span class="label">&#42;</span></label><br>
-					      		<select class="form-control " required="required" ng-model="selected" ng-options="item.id as item.value for item in dueday">
+					      		<select style="width:150px" class="form-control" required="required" ng-model="paymentDueday" ng-options="item for item in dueday">
 	       						</select>
 							</div>
 							<div class="form-group">
 					     		<label>Accounting cost Center</label><br>
-					      		 <input type="text" class="form-control" value="0">
+					      		 <input type="text" class="form-control" ng-model="accountingCost" placeholder="0" required>
 							</div>
 			          	</form><br><br>
 			          	<div class="checkbox">
 						  <label><input type="checkbox">Option Term Payment</label>
 						</div><br>
-						<div class="col-xs-6">
+						<div class="col-md-7">
 					        <label>Description</label>
-					        <input class="form-control input-lg" type="text">
+					        <input class="form-control input-lg" ng-model="description" type="text">
 					    </div>
 				    </div>
 		        </div>
@@ -85,11 +80,11 @@
 	        				Parameters
 				    	</div>
 		          	</form>
-		          	<p class="fa fa-toggle-right icon" ui-sref="page1.modal2" ng-click="fnModalView()"></p>
+		          	<span class="fa fa-toggle-right icon" data-dismiss="modal" data-toggle="modal" data-target="#myModal2"></span>
 		        </div>
 		    </div> 
 	    </div>
 	</div>  
 </div>
-<div ui-view></div>
 
+	
