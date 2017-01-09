@@ -27,3 +27,11 @@ angular.module('myApp').directive('deleteDirective', function() {
     }
 
 });
+
+angular.module('myApp').directive('editDirective', function() {
+    return {
+       restrict: 'EA',
+       templateUrl: '../view/saveChanges.html'
+    }
+
+});

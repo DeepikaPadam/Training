@@ -26,9 +26,18 @@
 
 .modalDimensions{
 	width:600px;
-	height:550px;
+	height:600px;
 }
 
 .myBtn{
-	margin-bottom: 20px;
+	margin-bottom: 20px !important;
+}
+
+.info{
+	float:left; 
+	text-align:center;
+}
+
+.modalBody{
+	height: 450px;
 }

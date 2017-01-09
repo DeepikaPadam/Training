@@ -14,21 +14,8 @@
   }); 
 
   angular.module('myApp').controller("modalController" , function($scope,$q,promiseService,$state){
-
-  //   if($state.current.name=="page1.modal2"){
-  //   console.log('in page1');
-  //   $("#myModal1").modal('hide');
-  //   $("#myModal2").modal('show');
-  // }
-
-  //   if($state.current.name=="page1.modal1"){
-  //   console.log('in page2');
-  //     $("#myModal1").modal('show');
-  //     $("#myModal2").modal('hide');
-  // }
-  
-
- 
+      $scope.display = true;
+      $scope.show = true;
       $scope.accounting = [];
       $scope.charge = [];
       $scope.growth = [];
@@ -56,7 +43,6 @@
             var res = str.split("\\");
             $scope.frequency.push(res[2]);
           }
-          console.log($scope.frequency);
       });
 
 
@@ -67,7 +53,6 @@
             var str=data[i].value;
             $scope.accounting.push(str);
           }
-          console.log($scope.accounting);
       });
 
       promiseService.getJsons("../jsons/l_ChargeAmountBasis.json").
@@ -77,7 +62,6 @@
             var str=data[i].value;
             $scope.charge.push(str);
           }
-          console.log($scope.charge);
       });
 
       promiseService.getJsons("../jsons/l_PaymentTiming.json").
@@ -87,7 +71,6 @@
             var str=data[i].value;
             $scope.paymentTiming.push(str);
           }
-          console.log($scope.paymentTiming);
       });
 
       promiseService.getJsons("../jsons/l_PaymentDueDay.json").
@@ -97,7 +80,6 @@
             var str=data[i].value;
             $scope.dueday.push(str);
           }
-          console.log($scope.dueday);
       });
 
       promiseService.getJsons("../jsons/l_GrowthType.json").
@@ -107,7 +89,6 @@
             var str=data[i].value;
             $scope.growth.push(str);
           }
-          console.log($scope.growth);
       });
 
       promiseService.getJsons("../jsons/l_PaymentDueOn.json").
@@ -117,15 +98,12 @@
             var str=data[i].value;
             $scope.dueon.push(str);
           }
-          console.log($scope.dueon);
       });
-
-      $scope.payType,$scope.accountingData,$scope.freqType,
-      $scope.startPeriod,$scope.paymentTime,$scope.paymentDueon,
-      $scope.paymentDueday,$scope.accountingCost,$scope.description,$scope.growthType,
-      $scope.fixedGrowth,$scope.schedules,$scope.AdjustEveryMonth,
-      $scope.chargeAmount,$scope.rentable,$scope.AmountPerBasis="";   
-
+        $scope.payType,$scope.accountingData,$scope.freqType,
+        $scope.startPeriod,$scope.paymentTime,$scope.paymentDueon,
+        $scope.paymentDueday,$scope.accountingCost,$scope.description,$scope.growthType,
+        $scope.fixedGrowth,$scope.schedules,$scope.AdjustEveryMonth,
+        $scope.chargeAmount,$scope.rentable,$scope.AmountPerBasis=""; 
       $scope.details = [];
       $scope.generateData= function(){
         var object = {};
@@ -149,7 +127,28 @@
         $scope.details.push(object);
       };
 
+      $scope.addDetails = function(){
+        console.log("gslgjk");
+        $scope.payType = null;
+        $scope.accountingData = null;
+        $scope.freqType = null;
+        $scope.startPeriod = null;
+        $scope.paymentTime = null;
+        $scope.paymentDueon = null;
+        $scope.paymentDueday = null;
+        $scope.accountingCost = null;
+        $scope.description = null;
+        $scope.growthType = null;
+        $scope.fixedGrowth = null;
+        $scope.schedules = null;
+        $scope.AdjustEveryMonth = null;
+        $scope.chargeAmount = null;
+        $scope.rentable = null;
+        $scope.AmountPerBasis = null; 
+        $scope.display = true;
+      }
 
+      
       $scope.delete = function(item) {
         console.log("wtwt");
        
@@ -158,15 +157,66 @@
 
       };
 
+      $scope.editDetails = function(x){
+        $scope.show = false; 
+        $scope.display = false;
+        console.log(x);
+        $scope.payType = x.payType; 
+        $scope.accountingData = x.accountingData;
+        $scope.freqType = x.freqType; 
+        $scope.startPeriod = x.startPeriod;
+        $scope.paymentTime = x.paymentTime; 
+        $scope.paymentDueon = x.paymentDueon;
+        $scope.paymentDueday = x.paymentDueday;
+        $scope.accountingCost = x.accountingCost;
+        $scope.description = x.description;
+        $scope.growthType = x.growthType; 
+        $scope.fixedGrowth = x.fixedGrowth; 
+        $scope.schedules = x.schedules;
+        $scope.AdjustEveryMonth = x.AdjustEveryMonth;
+        $scope.chargeAmount = x.chargeAmount;  
+        $scope.rentable = x.rentablent; 
+        $scope.AmountPerBasis = x.AmountPerBasis; 
+          
+          $scope.modifyDetails = function(){
+            console.log("ewtwe");
+            
+            for(var i=0; i<$scope.details.length; i++){
+              if($scope.details[i].payType== x.payType && $scope.details[i].startPeriod== x.startPeriod && $scope.details[i].freqType== x.freqType){
+                $scope.details[i].payType = $scope.payType;
+                console.log($scope.details[i].payType);
+                $scope.details[i].accountingData = $scope.accountingData;
+                $scope.details[i].freqType = $scope.freqType;
+                $scope.details[i].startPeriod = $scope.startPeriod;
+                $scope.details[i].paymentTime = $scope.paymentTime;
+                $scope.details[i].paymentDueon = $scope.paymentDueon;
+                $scope.details[i].paymentDueday = $scope.paymentDueday;
+                $scope.details[i].accountingCost = $scope.accountingCost;
+                $scope.details[i].description = $scope.description;
+                $scope.details[i].growthType  = $scope.growthType ;
+                $scope.details[i].fixedGrowth = $scope.fixedGrowth;
+                $scope.details[i].schedules = $scope.schedules;
+                $scope.details[i].AdjustEveryMonth = $scope.AdjustEveryMonth;
+                $scope.details[i].chargeAmount = $scope.chargeAmount;
+                $scope.details[i].rentable = $scope.rentable;
+                $scope.details[i].AmountPerBasis = $scope.AmountPerBasis;
+                console.log($scope.details);
+              }
+            }
+          };
+
+      };
+
+      $scope.checkValidations = function(){
+        $scope.isChecked = true;
+        return true;
+      }
+      $scope.fnSubmit = function(){
+     
+      }
+   
   });
   
- /* angular.module('myApp').controller("validationsController" , function($scope){
-
-    $scope.checkValidations = fuction(){
-
-    }
-
-  }); */
 
 })();
 
