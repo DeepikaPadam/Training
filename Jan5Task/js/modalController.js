@@ -1,247 +1,256 @@
-(function() {
-    "use strict";
+angular.module('myApp').controller("modalController", function( $q, promiseService) {
+   
+    var vm = this;
 
-    angular.module('myApp').service('promiseService', function($http, $q) {
+    vm.show = true;
+    vm.isChecked = true;
+    vm.accounting = [];
+    vm.charge = [];
+    vm.growth = [];
+    vm.dueday = [];
+    vm.dueon = [];
+    vm.paymentTiming = [];
+    vm.frequency = [];
+    vm.paymentType = [];
 
-        this.getJsons = function(url) {
-            return $http.get(url)
-                .then(function(response) {
-                    return response.data;
-                }, function(error) {
-                    return $q.reject(error);
-                });
+
+    promiseService.getJsons("../jsons/c_paymentType.json").
+    then(function(data) {
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].path;
+            var res = str.split("\\");
+            vm.paymentType.push(res[2]);
         }
     });
 
-    angular.module('myApp').controller("modalController", function($scope, $q, promiseService, $state) {
-        $scope.show = true;
-        $scope.accounting = [];
-        $scope.charge = [];
-        $scope.growth = [];
-        $scope.dueday = [];
-        $scope.dueon = [];
-        $scope.paymentTiming = [];
-        $scope.frequency = [];
-        $scope.paymentType = [];
+
+    promiseService.getJsons("../jsons/c_frequecyType.json").
+    then(function(data) {
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].path;
+            var res = str.split("\\");
+            vm.frequency.push(res[2]);
+        }
+    });
 
 
-        promiseService.getJsons("../jsons/c_paymentType.json").
-        then(function(data) {
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].path;
-                var res = str.split("\\");
-                $scope.paymentType.push(res[2]);
-            }
-        });
+    promiseService.getJsons("../jsons/l_AccountingType.json").
+    then(function(success) {
+        var data = success.result;
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].value;
+            vm.accounting.push(str);
+        }
+    });
 
+    promiseService.getJsons("../jsons/l_ChargeAmountBasis.json").
+    then(function(success) {
+        var data = success.result;
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].value;
+            vm.charge.push(str);
+        }
+    });
 
-        promiseService.getJsons("../jsons/c_frequecyType.json").
-        then(function(data) {
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].path;
-                var res = str.split("\\");
-                $scope.frequency.push(res[2]);
-            }
-        });
+    promiseService.getJsons("../jsons/l_PaymentTiming.json").
+    then(function(success) {
+        var data = success.result;
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].value;
+            vm.paymentTiming.push(str);
+        }
+    });
 
+    promiseService.getJsons("../jsons/l_PaymentDueDay.json").
+    then(function(success) {
+        var data = success.result;
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].value;
+            vm.dueday.push(str);
+        }
+    });
 
-        promiseService.getJsons("../jsons/l_AccountingType.json").
-        then(function(success) {
-            var data = success.result;
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].value;
-                $scope.accounting.push(str);
-            }
-        });
+    promiseService.getJsons("../jsons/l_GrowthType.json").
+    then(function(success) {
+        var data = success.result;
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].value;
+            vm.growth.push(str);
+        }
+    });
 
-        promiseService.getJsons("../jsons/l_ChargeAmountBasis.json").
-        then(function(success) {
-            var data = success.result;
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].value;
-                $scope.charge.push(str);
-            }
-        });
+    promiseService.getJsons("../jsons/l_PaymentDueOn.json").
+    then(function(success) {
+        var data = success.result;
+        for (var i = 0; i < data.length; i++) {
+            var str = data[i].value;
+            vm.dueon.push(str);
+        }
+    });
 
-        promiseService.getJsons("../jsons/l_PaymentTiming.json").
-        then(function(success) {
-            var data = success.result;
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].value;
-                $scope.paymentTiming.push(str);
-            }
-        });
+    vm.details = {};
 
-        promiseService.getJsons("../jsons/l_PaymentDueDay.json").
-        then(function(success) {
-            var data = success.result;
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].value;
-                $scope.dueday.push(str);
-            }
-        });
+    vm.generateData = function() {
+        if(vm.payType != "" &&  vm.accountingData !=""){
 
-        promiseService.getJsons("../jsons/l_GrowthType.json").
-        then(function(success) {
-            var data = success.result;
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].value;
-                $scope.growth.push(str);
-            }
-        });
+        }
+        var object = {};
+        if (vm.payType in vm.details) {
+            object.payType = vm.payType;
+            object.accountingData = vm.accountingData;
+            object.freqType = vm.freqType;
+            object.startPeriod = vm.startPeriod;
+            object.paymentTime = vm.paymentTime;
+            object.paymentDueon = vm.paymentDueon;
+            object.paymentDueday = vm.paymentDueday;
+            object.accountingCost = vm.accountingCost;
+            object.description = vm.description;
+            object.growthType = vm.growthType;
+            object.fixedGrowth = vm.fixedGrowth;
+            object.schedules = vm.schedules;
+            object.AdjustEveryMonth = vm.AdjustEveryMonth;
+            object.chargeAmount = vm.chargeAmount;
+            object.rentablent = vm.rentable;
+            object.AmountPerBasis = vm.AmountPerBasis;
+            console.log(object);
+            vm.details[vm.payType].push(object);
+            console.log(vm.details);
 
-        promiseService.getJsons("../jsons/l_PaymentDueOn.json").
-        then(function(success) {
-            var data = success.result;
-            for (var i = 0; i < data.length; i++) {
-                var str = data[i].value;
-                $scope.dueon.push(str);
-            }
-        });
-       
-        $scope.details = {};
+        } else {
 
-        $scope.generateData = function() {
-            var object = {};
-            if($scope.payType in  $scope.details){
-              object.payType = $scope.payType;
-              object.accountingData = $scope.accountingData;
-              object.freqType = $scope.freqType;
-              object.startPeriod = $scope.startPeriod;
-              object.paymentTime = $scope.paymentTime;
-              object.paymentDueon = $scope.paymentDueon;
-              object.paymentDueday = $scope.paymentDueday;
-              object.accountingCost = $scope.accountingCost;
-              object.description = $scope.description;
-              object.growthType = $scope.growthType;
-              object.fixedGrowth = $scope.fixedGrowth;
-              object.schedules = $scope.schedules;
-              object.AdjustEveryMonth = $scope.AdjustEveryMonth;
-              object.chargeAmount = $scope.chargeAmount;
-              object.rentablent = $scope.rentable;
-              object.AmountPerBasis = $scope.AmountPerBasis;
-              console.log(object);
-              $scope.details[$scope.payType].push(object);
-              console.log($scope.details);
-
-            }else{
-            
-              $scope.details[$scope.payType] = [];
-              console.log($scope.payType);
-              object.payType = $scope.payType;
-              object.accountingData = $scope.accountingData;
-              object.freqType = $scope.freqType;
-              object.startPeriod = $scope.startPeriod;
-              object.paymentTime = $scope.paymentTime;
-              object.paymentDueon = $scope.paymentDueon;
-              object.paymentDueday = $scope.paymentDueday;
-              object.accountingCost = $scope.accountingCost;
-              object.description = $scope.description;
-              object.growthType = $scope.growthType;
-              object.fixedGrowth = $scope.fixedGrowth;
-              object.schedules = $scope.schedules;
-              object.AdjustEveryMonth = $scope.AdjustEveryMonth;
-              object.chargeAmount = $scope.chargeAmount;
-              object.rentablent = $scope.rentable;
-              object.AmountPerBasis = $scope.AmountPerBasis;
-              console.log(object);
-              $scope.details[$scope.payType].push(object);
-              console.log($scope.details);
-            }
-            
-        };
-
-        $scope.addDetails = function() {
-            console.log("gslgjk");
-            $scope.payType = null;
-            $scope.accountingData = null;
-            $scope.freqType = null;
-            $scope.startPeriod = null;
-            $scope.paymentTime = null;
-            $scope.paymentDueon = null;
-            $scope.paymentDueday = null;
-            $scope.accountingCost = null;
-            $scope.description = null;
-            $scope.growthType = null;
-            $scope.fixedGrowth = null;
-            $scope.schedules = null;
-            $scope.AdjustEveryMonth = null;
-            $scope.chargeAmount = null;
-            $scope.rentable = null;
-            $scope.AmountPerBasis = null;
-            $scope.show= true;
+            vm.details[vm.payType] = [];
+            console.log(vm.payType);
+            object.payType = vm.payType;
+            object.accountingData = vm.accountingData;
+            object.freqType = vm.freqType;
+            object.startPeriod = vm.startPeriod;
+            object.paymentTime = vm.paymentTime;
+            object.paymentDueon = vm.paymentDueon;
+            object.paymentDueday = vm.paymentDueday;
+            object.accountingCost = vm.accountingCost;
+            object.description = vm.description;
+            object.growthType = vm.growthType;
+            object.fixedGrowth = vm.fixedGrowth;
+            object.schedules = vm.schedules;
+            object.AdjustEveryMonth = vm.AdjustEveryMonth;
+            object.chargeAmount = vm.chargeAmount;
+            object.rentablent = vm.rentable;
+            object.AmountPerBasis = vm.AmountPerBasis;
+            console.log(object);
+            vm.details[vm.payType].push(object);
+            console.log(vm.details);
         }
 
+    };
 
-      /*  $scope.delete = function(item,index) {
-            console.log("wtwt");
+    vm.addDetails = function() {
+        console.log("gslgjk");
+        vm.payType = '';
+        vm.accountingData = '';
+        vm.freqType = '';
+        vm.startPeriod = '';
+        vm.paymentTime = '';
+        vm.paymentDueon = '';
+        vm.paymentDueday = '';
+        vm.accountingCost = '';
+        vm.description = '';
+        vm.growthType = '';
+        vm.fixedGrowth = '';
+        vm.schedules = '';
+        vm.AdjustEveryMonth = '';
+        vm.chargeAmount = '';
+        vm.rentable = '';
+        vm.AmountPerBasis = '';
+        vm.show = true;
+    }
 
-            var index = $scope.details.indexOf(item);
-            $scope.details.splice(index, 1);
+
+     /* vm.delete = function(item) {
+          console.log("wtwt");
+
+          var index = vm.details.indexOf(item);
+          vm.details.splice(index, 1);
 
         }; */
-        $scope.delete = function(key,index){
-            console.log($scope.details[key][index]);        
-              $scope.details[key].splice(index,1);  
-        }
 
-        $scope.editDetails = function(key,index) {
-            $scope.show = false;
-            console.log(key);
-            $scope.payType = key.payType;
-            $scope.accountingData = key.accountingData;
-            $scope.freqType = key.freqType;
-            $scope.startPeriod = key.startPeriod;
-            $scope.paymentTime = key.paymentTime;
-            $scope.paymentDueon = key.paymentDueon;
-            $scope.paymentDueday = key.paymentDueday;
-            $scope.accountingCost = key.accountingCost;
-            $scope.description = key.description;
-            $scope.growthType = key.growthType;
-            $scope.fixedGrowth = key.fixedGrowth;
-            $scope.schedules = key.schedules;
-            $scope.AdjustEveryMonth = key.AdjustEveryMonth;
-            $scope.chargeAmount = key.chargeAmount;
-            $scope.rentable = key.rentablent;
-            $scope.AmountPerBasis = key.AmountPerBasis;
-
-            $scope.modifyDetails = function() {
-                console.log("ewtwe");
-                console.log($scope.details);
-                      
-                        $scope.details[key][index].payType = $scope.payType;
-                        $scope.details[key][index].accountingData = $scope.accountingData;
-                        $scope.details[key][index].freqType = $scope.freqType;
-                        $scope.details[key][index].startPeriod = $scope.startPeriod;
-                        $scope.details[key][index].paymentTime = $scope.paymentTime;
-                        $scope.details[key][index].paymentDueon = $scope.paymentDueon;
-                        $scope.details[key][index].paymentDueday = $scope.paymentDueday;
-                        $scope.details[key][index].accountingCost = $scope.accountingCost;
-                        $scope.details[key][index].description = $scope.description;
-                        $scope.details[key][index].growthType = $scope.growthType;
-                        $scope.details[key][index].fixedGrowth = $scope.fixedGrowth;
-                        $scope.details[key][index].schedules = $scope.schedules;
-                        $scope.details[key][index].AdjustEveryMonth = $scope.AdjustEveryMonth;
-                        $scope.details[key][index].chargeAmount = $scope.chargeAmount;
-                        $scope.details[key][index].rentable = $scope.rentable;
-                        $scope.details[key][index].AmountPerBasis = $scope.AmountPerBasis;
-
-                        console.log($scope.details);
-                    
-                }
-            };
-
+    vm.delete = function(key, index) {
+        console.log(key);
+        console.log(vm.details[key]);
+        vm.confirmDelete = function(){
+            var index = vm.details[key].indexOf(key);
+            vm.details[key].splice(index, 1);
+        };
        
+    };
 
-        $scope.checkValidations = function() {
-            $scope.isChecked = true;
-            return true;
+    vm.editDetails = function(key,index) {
+        vm.show = false;
+        console.log(key);
+        vm.payType = key.payType;
+        vm.accountingData = key.accountingData;
+        vm.freqType = key.freqType;
+        vm.startPeriod = key.startPeriod;
+        vm.paymentTime = key.paymentTime;
+        vm.paymentDueon = key.paymentDueon;
+        vm.paymentDueday = key.paymentDueday;
+        vm.accountingCost = key.accountingCost;
+        vm.description = key.description;
+        vm.growthType = key.growthType;
+        vm.fixedGrowth = key.fixedGrowth;
+        vm.schedules = key.schedules;
+        vm.AdjustEveryMonth = key.AdjustEveryMonth;
+        vm.chargeAmount = key.chargeAmount;
+        vm.rentable = key.rentablent;
+        vm.AmountPerBasis = key.AmountPerBasis;
+
+        vm.modifyDetails = function() {
+            console.log("ewtwe");
+            console.log(vm.details);
+
+            vm.details[key][index].payType = vm.payType;
+            vm.details[key][index].accountingData = vm.accountingData;
+            vm.details[key][index].freqType = vm.freqType;
+            vm.details[key][index].startPeriod = vm.startPeriod;
+            vm.details[key][index].paymentTime = vm.paymentTime;
+            vm.details[key][index].paymentDueon = vm.paymentDueon;
+            vm.details[key][index].paymentDueday = vm.paymentDueday;
+            vm.details[key][index].accountingCost = vm.accountingCost;
+            vm.details[key][index].description = vm.description;
+            vm.details[key][index].growthType = vm.growthType;
+            vm.details[key][index].fixedGrowth = vm.fixedGrowth;
+            vm.details[key][index].schedules = vm.schedules;
+            vm.details[key][index].AdjustEveryMonth = vm.AdjustEveryMonth;
+            vm.details[key][index].chargeAmount = vm.chargeAmount;
+            vm.details[key][index].rentable = vm.rentable;
+            vm.details[key][index].AmountPerBasis = vm.AmountPerBasis;
+
+            console.log(vm.details);
+
         }
-        $scope.fnSubmit = function() {
+    };
 
-        }
+    vm.checkValidations = function() {
+        console.log("fdgs")
+        vm.isChecked = true;
 
-    });
+       /* vm.payType != '';
+        vm.accountingData != '';
+        vm.freqType != '';
+        vm.startPeriod != '';
+        vm.paymentTime != '';
+        vm.paymentDueon != '';
+        vm.paymentDueday != '';
+        vm.accountingCost != '';
+        vm.description != '';
+        vm.growthType != '';
+        vm.fixedGrowth != '';
+        vm.schedules != '';
+        vm.AdjustEveryMonth != '';
+        vm.chargeAmount != '';
+        vm.rentable != '';
+        vm.AmountPerBasis != '';
+       */
+    }; 
 
 
-})();
+});

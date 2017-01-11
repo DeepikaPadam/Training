@@ -10,74 +10,82 @@
                 </div>
                 <div class="modal-body modalBody">
                     <div class="container">
-                        <form class="form-inline" name="myForm" novalidate ng-class="{'error':isChecked}">
+                        <form class="form-inline" name="myForm">
                             <div class="form-group">
                                 <label>Payment Type<span class="label">&#42;</span>
                                 </label>
                                 <br>
-                                <select style="width:250px" name="payType" class="form-control" ng-model="payType" ng-options="item for item in paymentType" required>
+                                <select style="width:250px" name="payType" class="form-control" data-ng-model="vm.payType" data-ng-options="item for item in vm.paymentType" required>
                                 </select>
                                 <br>
-                                <!-- <p ng-show="userForm.pay.$invalid && !userForm.pay.$pristine" class="help-block">Your name is required.</p> -->
-                                <span style="color:red" ng-show="isChecked && myForm.payType.$invalid">Please Enter PaymentType<span>  	                
+                                <span data-ng-show = "vm.isChecked">
+                                    <span style="color:red" data-ng-show="myForm.payType.$touched && myForm.payType.$invalid && myForm.payType.$error.required">Please Enter PaymentType</span>
+                                </span>  	                
 				            </div>
 					    	<div class="form-group">
 					     		<label>Accounting Type<span class="label">&#42;</span>
                                 </label>
                                 <br>
-                                <select style="width:250px" name="accountingType" class="form-control" ng-model="accountingData" ng-options="item for item in accounting" required>
+                                <select style="width:250px" name="accountingType" class="form-control" data-ng-model="vm.accountingData" data-ng-options="item for item in vm.accounting" required>
                                 </select>
                                 <br>
-                                <span style="color:red" ng-show="isChecked && myForm.accountingType.$invalid">Please Enter Accounting Type<span>
+                                <span style="color:red" data-ng-show="myForm.accountingType.$touched && myForm.accountingType.$invalid">Please Enter Accounting Type</span>
 					    	</div>
 			          	</form>
-			          	<form class="form-inline">
+			          	<form class="form-inline" name = "form">
 			          		<div class="form-group">
 					     		<label>Frequency<span class="label">&#42;</span>
                                 </label>
                                 <br>
-                                <select class="form-control" required="required" ng-model="freqType" ng-options="item for item in frequency">
+                                <select class="form-control" name = "frequency" required="required" data-ng-model="vm.freqType" data-ng-options="item for item in vm.frequency">
                                 </select>
+                                <br>
+                                <span style="color:red" data-ng-show="form.frequency.$touched && form.frequency.$invalid">Please Enter FreqType</span>
+
                             </div>
                             <div class="form-group">
                                 <label>Period Start Date<span class="label">&#42;</span>
                                 </label>
                                 <br>
                                 <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" ng-model="startPeriod" class="form-control" required>
+                                    <input type="text" name="date" data-ng-model="vm.startPeriod" class="form-control" required>
                                     <div class="input-group-addon">
                                         <span class="fa fa-calendar-o"></span>
                                     </div>
-                                </div>
+                                </div><br>
+                                <span style="color:red" data-ng-show="form.date.$touched && form.date.$invalid">Please Enter the Date</span>
                             </div>
                             <div class="form-group">
                                 <label>Payment Timing<span class="label">&#42;</span>
                                 </label>
                                 <br>
-                                <select class="form-control " required="required" ng-model="paymentTime" ng-options="item for item in paymentTiming">
-                                </select>
+                                <select class="form-control" name="paymentTiming" required="required" data-ng-model="vm.paymentTime" data-ng-options="item for item in vm.paymentTiming">
+                                </select><br>
+                                <span style="color:red" data-ng-show="form.paymentTiming.$touched && form.paymentTiming.$invalid">Please Enter PaymentTime</span>
 
                             </div>
                         </form>
-                        <form class="form-inline">
+                        <form class="form-inline" name = "form3">
                             <div class="form-group">
                                 <label>Payment Due On<span class="label">&#42;</span>
                                 </label>
                                 <br>
-                                <select class="form-control " required="required" ng-model="paymentDueon" ng-options="item for item in dueon">
-                                </select>
+                                <select class="form-control " name="dueon" required="required" data-ng-model="vm.paymentDueon" data-ng-options="item for item in vm.dueon">
+                                </select><br>
+                                <span style="color:red" data-ng-show="form3.dueon.$touched && form3.dueon.$invalid">Please Enter PaymentDueOn</span>
                             </div>
                             <div class="form-group">
                                 <label>Payment Due Day<span class="label">&#42;</span>
                                 </label>
                                 <br>
-                                <select style="width:150px" class="form-control" required="required" ng-model="paymentDueday" ng-options="item for item in dueday">
-                                </select>
+                                <select style="width:150px" class="form-control" required="required" data-ng-model="vm.paymentDueday" data-ng-options="item for item in vm.dueday">
+                                </select><br>
+                                <span style="color:red" name="dueday" data-ng-show="form3.dueday.$error.required && form3.dueday.$invalid">Please Enter PaymentDueDay</span>
                             </div>
                             <div class="form-group">
                                 <label>Accounting cost Center</label>
                                 <br>
-                                <input type="text" class="form-control" ng-model="accountingCost" placeholder="0" required>
+                                <input type="text" class="form-control" data-ng-model="vm.accountingCost" placeholder="0" required>
                             </div>
                         </form>
                         <br>
@@ -89,7 +97,7 @@
                         <br>
                         <div class="col-md-7">
                             <label>Description</label>
-                            <input class="form-control input-lg" ng-model="description" type="text">
+                            <input class="form-control input-lg" data-ng-model="vm.description" type="text">
                         </div>
                     </div>
                 </div>
@@ -104,9 +112,9 @@
                             <br> Parameters
                         </div>
                     </form>
-                    <span class="fa fa-toggle-right icon" data-dismiss="modal" data-toggle="modal" data-target="#myModal2" ng-show="show" ng-click="checkValidations()&& (myForm.$invalid==false && fnSubmit())"></span>
-                    <span class="fa fa-toggle-right icon" data-dismiss="modal" data-toggle="modal" data-target="#editModal" ng-hide="show"></span>
-                    <button type="button" class="btn btn-default myBtn" ng-click="modifyDetails()" data-dismiss="modal" ng-hide="show">Save</button>
+                    <span class="fa fa-toggle-right icon" data-dismiss="modal" data-toggle="modal" data-target="#myModal2" data-ng-show="vm.show" data-ng-click="vm.checkValidations()"></span>
+                    <span class="fa fa-toggle-right icon" data-dismiss="modal" data-toggle="modal" data-target="#editModal" data-ng-hide="vm.show"></span>
+                    <button type="button" class="btn btn-default myBtn" data-ng-click="vm.modifyDetails()" data-dismiss="modal" data-ng-hide="vm.show">Save</button>
                 </div>
             </div>
         </div>

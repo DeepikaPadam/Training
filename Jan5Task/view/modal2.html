@@ -14,45 +14,46 @@
                             <div class="form-group">
                                 <label>Growth Type</label>
                                 <br>
-                                <select class="form-control " required="required" ng-model="growthType" ng-options="item for item in growth" style="width: 250px;">
+                                <select class="form-control " required="required" data-ng-model="vm.growthType" data-ng-options="item for item in vm.growth" style="width: 250px;">
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Fixed Growth</label>
                                 <br>
-                                <input type="text" ng-model="fixedGrowth" class="form-control" placeholder="0" style="width: 250px;">
+                                <input type="text" data-ng-model="vm.fixedGrowth" class="form-control" placeholder="0" style="width: 250px;">
                             </div>
                         </form>
                         <form class="form-inline">
                             <div class="form-group">
                                 <label>Number of Schedules</label>
                                 <br>
-                                <input type="text" ng-model="schedules" class="form-control" style="width: 250px" placeholder="0">
+                                <input type="text" data-ng-model="vm.schedules" class="form-control" style="width: 250px" placeholder="0">
                             </div>
                             <div class="form-group">
                                 <label>Adjust Every(x) Months</label>
                                 <br>
-                                <input type="text" ng-model="AdjustEveryMonth" class="form-control" style="width: 250px" placeholder="0">
+                                <input type="text" data-ng-model="vm.AdjustEveryMonth" class="form-control" style="width: 250px" placeholder="0">
                             </div>
                         </form>
-                        <form class="form-inline">
+                        <form class="form-inline" name= "form">
 
                             <div class="form-group">
                                 <label>Charge Amount Basis<span class="label">&#42;</span>
                                 </label>
                                 <br>
-                                <select class="form-control " required="required" ng-model="chargeAmount" ng-options="item for item in charge">
-                                </select>
+                                <select class="form-control" name="charge" required="required" data-ng-model="vm.chargeAmount" data-ng-options="item for item in vm.charge">
+                                </select><br>
+                                <span style="color:red" name="dueday" data-ng-show="form.charge.$touched && form.charge.$invalid">Please Enter Cahrge Amount</span> 
                             </div>
 
                             <div class="form-group" style="margin-left: 14px;">
                                 <h5><b>Contract Rentable</b></h5>
-                                <input type="text" ng-model="rentable" class="form-control" style="width: 100px;" placeholder="0"><span> square-feet</span>
+                                <input type="text" data-ng-model="vm.rentable" class="form-control" style="width: 100px;" placeholder="0"><span> square-feet</span>
                             </div>
 
                             <div class="form-group">
                                 <h5><b>Amount Per Basis</b></h5>
-                                <input type="text" ng-model="AmountPerBasis" class="form-control" style="height: 35px;width:150px;" placeholder="0">
+                                <input type="text" data-ng-model="vm.AmountPerBasis" class="form-control" style="height: 35px;width:150px;" placeholder="0">
                             </div>
                         </form>
                         <br>
@@ -71,7 +72,7 @@
                         </div>
                     </form>
                     <span class="fa fa-toggle-left icon" data-dismiss="modal" data-toggle="modal" data-target="#myModal1"></span>
-                    <button type="button" class="btn btn-default myBtn" ng-click="generateData()" data-dismiss="modal">Generate</button>
+                    <button type="button" class="btn btn-default myBtn" data-ng-click="vm.generateData()" data-dismiss="modal">Generate</button>
                 </div>
             </div>
         </div>

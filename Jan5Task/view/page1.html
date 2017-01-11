@@ -14,21 +14,21 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody ng-repeat="(key, value) in details track by $index">
+            <tbody data-ng-repeat="(key, value) in vm.details track by $index">
                 <tr data-toggle="collapse" data-target="#{{$index}}" class="accordion-toggle trbottom">
                     <td class="col-md-2">{{key}}</td>
                     <td class="col-md-2"></td>
                     <td class="col-md-2"></td>
                     <td class="col-md-2"></td>
                     <td class="col-md-2"></td>
-                    <td class="col-md-2"> <span id='togglebutton' class="arrowtoggle" ng-click='show=!show;' ng-class="{'fa fa-angle-right':!show,'fa fa-angle-down':show}" aria-hidden="true"> </span>
+                    <td class="col-md-2"> <span id='togglebutton' class="arrowtoggle" data-ng-click='show=!show;' data-ng-class="{'fa fa-angle-right':!show,'fa fa-angle-down':show}" aria-hidden="true"> </span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6" class="hiddenRow">
                         <div class="accordian-body collapse" id="{{$index}}">
                             <table class="innertable col-lg-12  col-md-12">
-                                <tbody ng-repeat = "x in value">
+                                <tbody data-ng-repeat = "x in value">
                                     <tr>
                                         <td class="col-md-2"><span><i class="fa fa-hourglass-half"></i></span>
                                         </td>
@@ -37,8 +37,8 @@
                                         <td class="col-md-2">22/2/2018</td>
                                         <td class="col-md-2"></td>
                                         <td class="col-md-2">
-                                            <span class="arrowtoggle"><i class="fa fa-pencil" aria-hidden="true" ng-click="editDetails(key,$index)" data-toggle="modal" data-target="#myModal1"></i></span>
-                                            <span class="arrowtoggle"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"></i></span>
+                                            <span class="arrowtoggle"><i class="fa fa-pencil" aria-hidden="true" data-ng-click="vm.editDetails(key,$index)" data-toggle="modal" data-target="#myModal1"></i></span>
+                                            <span class="arrowtoggle"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-ng-click="vm.delete(key,$index)"></i></span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -50,7 +50,7 @@
             <tfoot>
                 <tr>
                     <td colspan="6">
-                        <button type="button" class="btn btn-success btn-block footer" data-toggle="modal" data-target="#myModal1" ng-click="addDetails()">+Add</button>
+                        <button type="button" class="btn btn-success btn-block footer" data-toggle="modal" data-target="#myModal1" data-ng-click="vm.addDetails()">+Add</button>
                     </td>
                 </tr>
             </tfoot>
@@ -59,8 +59,8 @@
 </div>
 
 <div>
-    <modal1-directive></modal1-directive>
-    <modal2-directive></modal2-directive>
-    <delete-directive></delete-directive>
-    <edit-directive></edit-directive>
+    <div data-ng-include="'view/modal1.html'"></div>
+    <div data-ng-include="'view/modal2.html'"></div>
+    <div data-ng-include="'view/deleteModal.html'"></div>
+    <div data-ng-include="'view/saveChanges.html'"></div>
 </div>
