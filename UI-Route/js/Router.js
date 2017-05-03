@@ -49,9 +49,9 @@ app.service('jsonService', function ($http, $q) {
 });
 app.controller("serviceController" , function($scope,$q,jsonService){
 
-    var promise1 = jsonService.getDetails("jS/myDetails.json");
+    var promise1 = jsonService.getDetails("js/myDetails.json");
 
-    var promise2 = jsonService.getDetails("jS/myFriends.json");
+    var promise2 = jsonService.getDetails("js/myFriends.json");
 
     $q.all([promise1, promise2]).then(function(data){ 
         $scope.json1 = data[0];
