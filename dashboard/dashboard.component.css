@@ -1,0 +1,27 @@
+.dashboard-container .genre-title{
+  color: whitesmoke;
+}
+
+.dashboard-container .show-container {
+  margin-top: 10px;
+  /*height: 400px;*/
+}
+
+.dashboard-container .show-container .card {
+  padding: 0;
+  border: none;
+}
+
+.dashboard-container .images {
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 250px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.dashboard-container .images > img{
+  height: 200px;
+}
+.dashboard-container .images .card-text{
+  font-size: 13px;
+}

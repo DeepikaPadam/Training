@@ -1,0 +1,11 @@
+<div class="container dashboard-container my-3" *ngFor="let item of totalShowsList">
+  <h3>{{item.genre}}</h3>
+  <div class="flex-nowrap flex-row overflow-auto row show-container">
+    <div class="col-3 card images" *ngFor="let obj of item.details">
+      <img class="card-img-top" [src]="obj.image.medium" alt="" [routerLink]="['details']" routerLinkActive="active"
+           [queryParams]="{ name: obj.name }" />
+        <h5 class="card-title">{{obj.name}}</h5>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
