@@ -1,0 +1,50 @@
+<div>
+  <div class="container my-4 single-show">
+    <div class="card">
+      <div class="card-body row" *ngIf="details; else content">
+          <div class="col-sm-6">
+            <h3>{{details.name}}</h3>
+            <div>
+              <span>Rating: {{details.rating.average}}</span>
+              <span class="ml-3">Runtime: {{details.runtime}} Minutes</span>
+            </div>
+            <div>
+              <span>Status: {{details.status}}</span>
+              <span class="ml-3">Premiered: {{details.premiered}}</span>
+            </div>
+            <p class="pt-4" [innerHTML]= "details.summary"></p>
+            <div>
+              <table class="table table-borderless">
+                <tbody>
+                <tr>
+                  <td class="font-weight-bold">Language</td>
+                  <td>{{details.language}}</td>
+                </tr>
+                <tr>
+                  <td class="font-weight-bold">Genres</td>
+                  <td>{{details.genres.join(',')}}</td>
+                </tr>
+                <tr>
+                  <td class="font-weight-bold">Network</td>
+                  <td>{{details.network.name}}</td>
+                </tr>
+                <tr>
+                  <td class="font-weight-bold">Country</td>
+                  <td>{{details.network.country.name}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <div class="col-sm-6 show-image">
+            <img class="" src={{details.image.original}} alt="Card image" />
+          </div>
+        </div>
+      <ng-template #content>No Results Found</ng-template>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary btn-md" type="submit" [routerLink]="['']" routerLinkActive="active">Back</button>
+  </div>
+</div>
